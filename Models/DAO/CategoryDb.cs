@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Models.DAO
 {
-   public class CategoryDb
+   public class CategoryDb : BaseModel
     {
-       MilanoShopDbContext context;
-       public CategoryDb()
-       {
-           context = new MilanoShopDbContext();
-       }
+       //MilanoShopDbContext context;
+       //public CategoryDb()
+       //{
+       //    context = new MilanoShopDbContext();
+       //}
 
        public List<Category> GetCategories(int id)
        {
@@ -37,7 +37,19 @@ namespace Models.DAO
            SqlParameter[] param = new SqlParameter[]{
                new SqlParameter("@id",cat.ID),
                 new SqlParameter("@Name",cat.Name),
-                 new SqlParameter("@MetaTitle",cat.MetaTitle)
+                 new SqlParameter("@MetaTitle",cat.MetaTitle),
+                  new SqlParameter("@DisplayOrder",cat.DisplayOrder),
+                   new SqlParameter("@SeoTitle",cat.SeoTitle),
+                    new SqlParameter("@CreatedDate",cat.CreatedDate),
+                     new SqlParameter("@CreatedBy",cat.CreatedBy),
+                      new SqlParameter("@ModifiedDate",cat.ModifiedDate),
+                       new SqlParameter("@ModifiedBy",cat.ModifiedBy),
+                        new SqlParameter("@MetaKeywords",cat.MetaKeywords),
+                         new SqlParameter("@MetaDescriptions",cat.MetaDescriptions),
+                          new SqlParameter("@Status",cat.Status),
+                           new SqlParameter("@ShowOnHome",cat.ShowOnHome),
+                            new SqlParameter("@Language",cat.Language),
+                    
                  //...Them cho du thuonc tinsh
            };
            return context.Database.ExecuteSqlCommand("PSP_Category_InsertAndUpdate @id,@Name", param);

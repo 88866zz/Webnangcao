@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.DAO;
+using Models.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +13,15 @@ namespace FcMilano.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
-            return View();
+            var products = new ProductDb().GetProduct(0);
+            return View(products);
         }
 
         // GET: Admin/Product/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var product = new ProductDb().GetProductID(id);
+            return View(product);
         }
 
         // GET: Admin/Product/Create
@@ -28,62 +32,76 @@ namespace FcMilano.Areas.Admin.Controllers
 
         // POST: Admin/Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Product collection)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var result = new ProductDb().InsertAndUpdateProduct(collection);
+                if (result > 0 && ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
-                return View();
+                return View(collection);
             }
+            return View(collection);
         }
 
         // GET: Admin/Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var product = new ProductDb().GetProductID(id);
+            return View(product);
         }
 
         // POST: Admin/Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Product collection)
         {
             try
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                var result = new ProductDb().InsertAndUpdateProduct(collection);
+                if (result > 0 && ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+
             }
             catch
             {
-                return View();
+                return View(collection);
             }
+            return View(collection);
         }
 
         // GET: Admin/Product/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var product = new ProductDb().GetProductID(id);
+            return View(product);
         }
 
         // POST: Admin/Product/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Product collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                var result = new ProductDb().DeleteProduct(id);
+                if (result > 0 && ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {
-                return View();
+                return View(collection);
             }
+            return View(collection);
         }
     }
 }
