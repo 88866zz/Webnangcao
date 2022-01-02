@@ -9,7 +9,10 @@ namespace FcMilano.Areas.Admin.Commons
     [Serializable]
     public class UserSession
     {
-        public string UserName { set; get; }
+        public User userStatic;
+ 
+        public User UserStatic { get => UserStatic; set => userStatic = value; }
+
     }
 
 }

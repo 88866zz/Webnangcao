@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -146,10 +147,10 @@ namespace FcMilano.Areas.Admin.Commons
             throw new NotImplementedException();
         }
 
-        public override bool ValidateUser(string username, string password)
+        public override bool ValidateUser(string UserName, string Password)
         {
             string err = string.Empty;
-            return new AccountDAO().CheckLogin(ref err, username, password);
+            return new AccountDAO().CheckLogin(ref err, UserName, Password);
 
         }
     }

@@ -52,10 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountDAO.cs" />
+    <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\CategoryDb.cs" />
+    <Compile Include="DAO\ProductCategoryDb.cs" />
     <Compile Include="DAO\ProductDb.cs" />
+    <Compile Include="DAO\UserDb.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Contact.cs" />
