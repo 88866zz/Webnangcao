@@ -50,7 +50,7 @@ namespace Models.DAO
                     
                  //...Them cho du thuonc tinsh
            };
-            return context.Database.ExecuteSqlCommand("PSP_User_InsertAndUpdate @id,@Name", param);
+            return context.Database.ExecuteSqlCommand("PSP_User_InsertAndUpdate @id,@UserName", param);
         }
         public int DeleteUser(long id)
         {

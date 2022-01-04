@@ -55,6 +55,9 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\CategoryDb.cs" />
+    <Compile Include="DAO\ContentDAO.cs" />
+    <Compile Include="DAO\FeedbackDb.cs" />
+    <Compile Include="DAO\MenuDb.cs" />
     <Compile Include="DAO\ProductCategoryDb.cs" />
     <Compile Include="DAO\ProductDb.cs" />
     <Compile Include="DAO\UserDb.cs" />
