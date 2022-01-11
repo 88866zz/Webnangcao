@@ -1,5 +1,5 @@
 ﻿using FcMilano.Areas.Admin.Commons;
-using FcMilano.Models;
+using FcMilano.Areas.Admin.Models;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -21,15 +21,15 @@ namespace FcMilano.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(AccountModels Model)
+        public ActionResult Index(LoginModel Model)
         {
-            if (Membership.ValidateUser(Model.UserName, Model.PassWord) && ModelState.IsValid)
+            if (Membership.ValidateUser(Model.UserName, Model.Password) && ModelState.IsValid)
             {
                 //luu session de check hien thi
               //  User user = new AccountDAO().GetUserByUserName(Model.UserName, Model.PassWord);
                // SessionHelper.SetSession(new UserSession() { UserName = user });
                 //session de kiem tra dang nhap
-                FormsAuthentication.SetAuthCookie(Model.UserName, Model.Remember);
+                FormsAuthentication.SetAuthCookie(Model.UserName, Model.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             else

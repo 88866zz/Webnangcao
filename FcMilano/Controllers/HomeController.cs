@@ -1,6 +1,6 @@
 ﻿using System;
 using FcMilano.Areas.Admin.Commons;
-using FcMilano.Models;
+using FcMilano.Areas.Admin.Models;
 using Models;
 using System.Collections.Generic;
 using System.Linq;

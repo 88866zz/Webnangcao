@@ -150,7 +150,7 @@ namespace FcMilano.Areas.Admin.Commons
         public override bool ValidateUser(string UserName, string Password)
         {
             string err = string.Empty;
-            return new AccountDAO().CheckLogin(ref err, UserName, Password);
+            return new AccountDAO().Login(ref err, UserName, Password);
 
         }
     }
